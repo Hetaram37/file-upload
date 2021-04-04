@@ -1,0 +1,23 @@
+{
+  "name": "file-upload-sevice",
+  "version": "1.0.0",
+  "description": "Manage file upload operation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hetaram",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "jshint": "^2.12.0",
+    "jslint": "^0.12.1",
+    "mongoose": "^5.5.2",
+    "multer": "^1.4.1",
+    "sharp": "^0.22.1",
+    "standard": "^16.0.3",
+    "validator": "^10.11.0",
+    "xss-clean": "^0.1.1"
+  }
+}

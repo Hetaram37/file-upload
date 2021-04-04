@@ -1,0 +1,50 @@
+<div class="container"> 
+  <!-- Keep container in center -->
+  <div class="col-xl-5 col-md-6 col-sm-9 col-12 mx-auto my-5">
+    <!-- Start form -->
+    <form [formGroup]="fileUploadForm" class="text-color" autocomplete="off" (submit)="onSubmit()">
+
+      <!-- Preview image in center -->
+      <div class="form-group text-center" *ngIf="userImage">
+        <img [src]="userImage" height="200px" width="200px" class="z-depth-0 text-center">
+      </div>
+
+      <!-- Select image -->
+      <div class="form-group">
+        <label for="image">Select image</label>
+        <input type="file" class="form-control" formControlName="image" placeholder="Select image"
+          (change)="onFileChange($event)">
+        <!-- Error validation -->
+        <div *ngIf="image.invalid && (image.dirty || image.touched)" class="text-danger">
+          <div *ngIf="image.errors?.required">User profile is required</div>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress form-group" style="position: relative" *ngIf="progress > 0">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
+        </div>
+        <span class="progress-bar-label">{{progress}}%</span>
+      </div>
+
+      <!-- Name -->
+      <div class="form-group input-group-lg">
+        <label for="name">Enter Name</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Enter name">
+        <!-- Validation for name -->
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+          <div *ngIf="name.errors?.required">Name is required</div>
+          <div *ngIf="name.errors?.minlength">Minimum 2 character required</div>
+          <div *ngIf="name.errors?.maxlength">Maximum 25 character allowed</div>
+          <div *ngIf="name.errors?.pattern">Only characters allowed</div>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <div class="form-group">
+        <input type="submit" class="btn btn-info btn-block btn-lg" value="Submit">
+      </div>
+
+    </form>
+  </div>
+</div>
